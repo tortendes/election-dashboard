@@ -3,13 +3,6 @@ import candidate from "@/models/candidate";
 
 await dbConnect();
 
-type CandidateData = {
-    name: string,
-    party: "WPR" | "GER" | "LfR" | "RRP" | "TP" | "RU" | "IND"
-    description: string
-    logo?: string
-}
-
 type Params = {
     id: string
 }

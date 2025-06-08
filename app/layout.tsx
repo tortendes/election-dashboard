@@ -37,7 +37,7 @@ export default function RootLayout({
         <nav className="px-4 py-2 flex items-center justify-between">
           <Link href="/">
             <div className="flex items-center gap-0.5">
-              <Image src="/icons/Redmont_Flag.svg" className="max-w-6" width={129} height={86} />
+              <Image src="/icons/Redmont_Flag.svg" className="max-w-6" width={129} height={86} alt="Square flag of the Commonwealth of Redmont" />
               <span className="font-bold uppercase">Election Center</span>
             </div>
           </Link>
@@ -50,8 +50,8 @@ export default function RootLayout({
           <div className="hidden invisible md:visible md:flex md:items-center md:gap-2">
             <ModeToggle />
             <a href="https://tpanews.demcraft.site" target="_blank">
-              <img src="/icons/tpa-default-black.svg" alt="TPA News" className="dark:hidden dark:invisible w-32" />
-              <img src="/icons/tpa-default-white.svg" alt="TPA News" className="not-dark:hidden not-dark:invisible w-32" />
+              <Image src="/icons/tpa-default-black.svg" alt="TPA News" className="dark:hidden dark:invisible w-32" width={785} height={98} />
+              <Image src="/icons/tpa-default-white.svg" alt="TPA News" className="not-dark:hidden not-dark:invisible w-32" width={785} height={98}/>
             </a>
           </div>
         </nav>

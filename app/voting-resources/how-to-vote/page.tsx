@@ -31,10 +31,10 @@ export default function HowToVotePage() {
                         </div>
                     </section>
                     <section>
-                        <h1 className="text-3xl font-medium">...and you're done!</h1>
+                        <h1 className="text-3xl font-medium">...and you&apos;re done!</h1>
                         <div className="mt-2">
                             <p>Congratulations, You have sucessfully contributed to Democracy! Elections end 3 days after it starts, or you can check our timer at the homepage.</p>
-                            <p>For more help about elections and other topics, feel free to ask your fellow players. Don't worry, we don't bite :)</p>
+                            <p>For more help about elections and other topics, feel free to ask your fellow players. Don&apos;t worry, we don&apos;t bite :)</p>
                         </div>
                     </section>
                 </article>

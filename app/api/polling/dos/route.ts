@@ -9,7 +9,7 @@ type BallotRequest = {
     results: { candidate: string, votes: number }[]
 }
 
-export async function GET(req: Request) {
+export async function GET() {
     try {
         const result = await ElectionReturn.findOne({}).sort('-update_time')
         return Response.json({ success: true, raw_data: result }, { status: 200 })
