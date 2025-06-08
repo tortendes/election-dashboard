@@ -1,0 +1,70 @@
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
+import {
+  Table,
+  TableBody,
+  TableCaption,
+  TableCell,
+  TableHead,
+  TableHeader,
+  TableRow,
+} from "@/components/ui/table"
+import { ScrollArea } from "@radix-ui/react-scroll-area"
+import { Dot } from "lucide-react"
+
+type PollingData = {
+    candidates: CandidateInfo[]
+    answers: string[]
+    result: PollingResult[]
+    title: string
+    respondents: number
+}
+
+type PollingResult = {
+    id: number
+    result: number[]
+}
+
+type CandidateInfo = {
+    name: string;
+    color: string;
+}
+
+export default function ExitPolling(props: PollingData) {
+    return (
+        <Card className="w-full">
+            <CardHeader>
+                <CardTitle className="md:text-3xl font-black">{props.title}</CardTitle>
+                <CardDescription className="md:text-lg font-medium">{props.respondents} total respondents</CardDescription>
+                <CardContent className="overflow-x-scroll">
+                    <Table>
+                        <TableHeader>
+                            <TableRow>
+                                <TableHead></TableHead>
+                                {props.answers.map((element, idx) => (
+                                    <TableHead key={idx}>{element}</TableHead>
+                                ))}
+                            </TableRow>
+                        </TableHeader>
+                        <TableBody>
+                            {props.candidates.map((candidate, idx) => {
+                                return (
+                                    <TableRow key={idx}>
+                                        <TableCell className="flex items-center gap-0.5" key={idx}>
+                                            <Dot color={candidate.color} />
+                                            <span>{candidate.name}</span>
+                                        </TableCell>
+                                        {props.result[idx].result.map((result, idr) => {
+                                            return (
+                                                <TableCell key={idr}>{Math.round((result/props.respondents)*100)}%</TableCell>
+                                            )
+                                        })}
+                                    </TableRow>
+                                )
+                            })}
+                        </TableBody>
+                    </Table>
+                </CardContent>
+            </CardHeader>
+        </Card>
+    )
+}
