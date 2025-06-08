@@ -1,8 +1,5 @@
 import dbConnect from "@/lib/database";
-import { stvElection, Ballot } from "@/message";
 import ElectionReturn from "@/models/electionReturn";
-import Candidate from '@/models/candidate'
-import candidate from "@/models/candidate";
 
 await dbConnect()
 

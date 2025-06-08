@@ -1,6 +1,8 @@
 import dbConnect from "@/lib/database";
 import candidate from "@/models/candidate";
 
+await dbConnect();
+
 type CandidateData = {
     name: string,
     party: "WPR" | "GER" | "LfR" | "RRP" | "TP" | "RU" | "IND"

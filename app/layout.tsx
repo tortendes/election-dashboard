@@ -2,16 +2,7 @@ import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import Link from "next/link";
-import {
-  NavigationMenu,
-  NavigationMenuContent,
-  NavigationMenuIndicator,
-  NavigationMenuItem,
-  NavigationMenuLink,
-  NavigationMenuList,
-  NavigationMenuTrigger,
-  NavigationMenuViewport,
-} from "@/components/ui/navigation-menu"
+import Image from "next/image"
 import { ThemeProvider } from "@/components/theme-provider";
 import { ModeToggle } from "@/components/interactive/color-mode";
 import DesktopNavbar from "@/components/static/navigation-bar";
@@ -46,7 +37,7 @@ export default function RootLayout({
         <nav className="px-4 py-2 flex items-center justify-between">
           <Link href="/">
             <div className="flex items-center gap-0.5">
-              <img src="/icons/Redmont_Flag.svg" className="max-w-6" />
+              <Image src="/icons/Redmont_Flag.svg" className="max-w-6" width={129} height={86} />
               <span className="font-bold uppercase">Election Center</span>
             </div>
           </Link>

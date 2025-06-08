@@ -1,4 +1,3 @@
-import { Button } from "@/components/ui/button"
 import {
   Sheet,
   SheetClose,
@@ -9,7 +8,6 @@ import {
   SheetTitle,
   SheetTrigger,
 } from "@/components/ui/sheet"
-import { Menu } from "lucide-react"
 import Link from "next/link"
 
 export function PepeMobileNavigation() {
@@ -31,10 +29,10 @@ export function PepeMobileNavigation() {
         </SheetHeader>
         <div className="flex flex-col h-full gap-2 p-4">
         <Link href="/polling/exit-polls/pepe">
-            <span className="text-3xl font-thin">Pepe's Polling Co. Exit Poll</span>
+            <span className="text-3xl font-thin">Pepe&apos;s Polling Co. Exit Poll</span>
         </Link>
         <Link href="/polling/opinion-polls/pepe">
-            <span className="text-3xl font-thin">Pepe's Polling Co. Opinion Poll</span>
+            <span className="text-3xl font-thin">Pepe&apos;s Polling Co. Opinion Poll</span>
         </Link>
         </div>
         <SheetFooter>

@@ -1,7 +1,7 @@
 import dbConnect from "@/lib/database";
 import candidate from "@/models/candidate";
 
-await dbConnect()
+await dbConnect();
 
 type CandidateData = {
     name: string,

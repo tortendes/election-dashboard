@@ -1,7 +1,5 @@
-import { JSX } from "react";
 import { Progress } from "../ui/progress";
 import Image from 'next/image'
-import { Candidate } from "@/models/candidate";
 
 type ElectionResult = {
     object_id: string;

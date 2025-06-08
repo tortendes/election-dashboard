@@ -1,16 +1,4 @@
-import Image from "next/image";
-import {
-  Card,
-  CardAction,
-  CardContent,
-  CardDescription,
-  CardFooter,
-  CardHeader,
-  CardTitle,
-} from "@/components/ui/card"
-import { Progress } from "@/components/ui/progress"
 import ElectionResult from "@/components/interactive/result";
-import dayjs from "dayjs";
 import HomeHero from "@/components/pages/home-hero";
 import Timer from "@/components/interactive/timer";
 
