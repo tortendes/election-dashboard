@@ -1,6 +1,7 @@
 import { Progress } from "@/components/ui/progress";
 import dayjs from "dayjs";
 import { Card, CardHeader, CardTitle, CardDescription, CardContent, CardFooter } from "../ui/card";
+import Image from "next/image"
 
 type ElectionData = {
     total_ballots: number
@@ -15,7 +16,7 @@ export default function HomeHero(props: ElectionData) {
 
     return (
       <header className="bg-[url('/backgrounds/main.webp')] bg-cover min-h-1/3 flex flex-col sm:flex-row items-center gap-8 md:gap-0 md:justify-between px-8 py-12 w-full">
-        <img src="/icons/header-logo.svg" className="md:max-w-1/2" />
+        <Image src="/icons/header-logo.svg" className="md:max-w-1/2" alt="Redmont Decides next line Election Dashboard" width={1126} height={173} />
         <Card className="items-center text-center md:min-w-1/3">
           <CardHeader className="flex flex-col items-center text-center w-full">
             <CardTitle>Total Election Results Processed</CardTitle>
