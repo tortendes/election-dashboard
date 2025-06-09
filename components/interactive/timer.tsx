@@ -9,13 +9,12 @@ export default function Timer() {
     useEffect(() => {
         const countdownInterval = setInterval(() => {
             const currentTime = new Date().getTime();
-            const eventTime = new Date("2025-06-10T00:00:00.000Z").getTime();
+            const eventTime = new Date("2025-06-11T00:00:00.000Z").getTime();
             let remainingTime = eventTime - currentTime;
 
             if (remainingTime <= 0) {
                 remainingTime = 0;
                 clearInterval(countdownInterval);
-                alert("Countdown complete!");
             }
 
             setTimeRemaining(remainingTime);

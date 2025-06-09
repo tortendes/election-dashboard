@@ -1,11 +1,18 @@
 import ElectionResult from "@/components/interactive/result";
 import HomeHero from "@/components/pages/home-hero";
 import Timer from "@/components/interactive/timer";
+import dbConnect from "@/lib/database";
+import ElectionReturn from "@/models/electionReturn"
 
 
 export default async function Home() {
-  const data = await fetch('http://localhost:3000/api/polling/dos', { cache: 'no-store' });
-  const { raw_data: election_return } = await data.json();
+  async function getElectionReturn() {
+    "use server"
+    await dbConnect()
+    return await ElectionReturn.findOne({}).sort('-update_time')
+  }
+
+  const election_return = await getElectionReturn()
 
   return (
     <main className="h-full font-sans">
