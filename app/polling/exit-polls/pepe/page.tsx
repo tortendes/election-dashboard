@@ -156,7 +156,7 @@ export default function PepePollingCoExitPolls() {
                     }
                 />
             <ExitPolling title="Adressing Wealth Inequality"
-                    respondents={16}
+                    respondents={20}
                     answers={["Excellent", "Neutral", "Poor", "N/A"]}
                     result={[
                         { id: 1,
@@ -180,7 +180,7 @@ export default function PepePollingCoExitPolls() {
                     }
                 />
             <ExitPolling title="Safeguarding Democracy"
-                    respondents={16}
+                    respondents={20}
                     answers={["Excellent", "Neutral", "Poor", "N/A"]}
                     result={[
                         { id: 1,
