@@ -11,7 +11,7 @@ export default function PepePollingCoExitPolls() {
         <div className="flex flex-col md:grid grid-cols-2 gap-2 px-4 py-2">
             <div className="col-span-2">
                 <ExitPolling title="Presidential Pick"
-                    respondents={17}
+                    respondents={20}
                     answers={["First Preference"]}
                     result={[
                         { id: 1,
