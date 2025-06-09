@@ -1,5 +1,5 @@
 import { Progress } from "../ui/progress";
-import { PrismaClient } from "@prisma/client"
+import { PrismaClient } from "@/generated/prisma/edge"
 import Image from 'next/image'
 
 const prisma = new PrismaClient()
