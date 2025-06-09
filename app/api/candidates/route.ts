@@ -1,4 +1,4 @@
-import { PrismaClient } from "@prisma/client"
+import { PrismaClient } from "@/generated/prisma/edge"
 const prisma = new PrismaClient()
 
 type CandidateData = {
