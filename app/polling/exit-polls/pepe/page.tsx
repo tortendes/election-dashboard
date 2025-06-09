@@ -1,5 +1,8 @@
 import ExitPolling from "@/components/static/exit-polling/results";
+import { Button } from "@/components/ui/button";
+import { Card, CardAction, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import Image from "next/image"
+import Link from "next/link";
 
 export default function PepePollingCoExitPolls() {
     return (
@@ -40,7 +43,7 @@ export default function PepePollingCoExitPolls() {
                     answers={["WPR", "LfR", "GER", "RRP", "RU", "TP", "IND"]}
                     result={[
                         { id: 1,
-                            result: [12,0,0,0,1,1,3]
+                            result: [13,0,0,0,1,1,3]
                         },
                         { id: 2,
                             result: [0,1,1,0,0,0,2]
@@ -203,6 +206,17 @@ export default function PepePollingCoExitPolls() {
                         ]
                     }
                 />
+                <Card className="w-full justify-self-center-safe">
+                    <CardHeader>
+                        <CardTitle>Make our data more accurate and reliable</CardTitle>
+                        <CardDescription>Answer our affiliates polling right now!</CardDescription>
+                        <CardContent className="grid w-full h-full place-items-center mt-4">
+                            <Button asChild>
+                                <a href="https://forms.gle/8TffQb1pXVfEL4y88" target="_blank">Pepe's Exit Poll Survey (Google Form)</a>
+                            </Button>
+                        </CardContent>
+                    </CardHeader>
+                </Card>
         </div>
         </>
     )
