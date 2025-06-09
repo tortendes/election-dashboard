@@ -61,8 +61,8 @@ export default function Timer() {
 
     return (
         <Alert className="grid place-items-center my-2 md:max-w-1/3">
-            <AlertTitle className="mb-2 text-white/50">Poll closes at:</AlertTitle>
-            <AlertDescription className="text-white">
+            <AlertTitle className="mb-2 dark:text-white/50">Poll closes at:</AlertTitle>
+            <AlertDescription className="dark:text-white">
                 {formatTime(timeRemaining)}
             </AlertDescription>
         </Alert>
