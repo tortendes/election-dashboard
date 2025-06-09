@@ -1,23 +1,36 @@
 import ElectionResult from "@/components/interactive/result";
 import HomeHero from "@/components/pages/home-hero";
 import Timer from "@/components/interactive/timer";
-import dbConnect from "@/lib/database";
-import ElectionReturn from "@/models/electionReturn"
+import { PrismaClient } from "@prisma/client"
 
+const prisma = new PrismaClient()
+
+export const revalidate = 60 // revalidate the data at most every hour
 
 export default async function Home() {
-  async function getElectionReturn() {
-    "use server"
-    await dbConnect()
-    return await ElectionReturn.findOne({}).sort('-update_time')
-    const revalidate = 10
-  }
+  const result = await prisma.electionReturn.findFirst({
+    orderBy: {
+      update_time: "desc"
+    },
+    select: {
+      results: true,
+      update_time: true,
+      total_votes: true,
+      processed_votes: true
+    }
+  })
 
-  const election_return = await getElectionReturn()
+  if (!result) {
+    return (
+      <>
+        <p>no data yet</p>
+      </>
+    )
+  }
 
   return (
     <main className="h-full font-sans">
-      <HomeHero total_ballots={election_return.total_votes} processed_votes={election_return.processed_votes} />
+      <HomeHero total_ballots={result.total_votes} processed_votes={result.processed_votes} update_time={result.update_time} />
       <div className="px-2 py-4">
         <div className="w-full grid place-items-center">
           <Timer />
@@ -25,8 +38,8 @@ export default async function Home() {
         <section>
           <h1 className="text-3xl font-bold mb-2">Presidential Results</h1>
           <div className="flex flex-col md:flex-row items-center justify-center gap-2 w-full">
-            { election_return.results.map(({ candidate, votes }: { candidate: string, votes: number }, idx: number) => {
-              return <ElectionResult object_id={candidate} total_ballots={election_return.total_votes} votes={votes} key={idx} />
+            { result.results.map(({ candidateId, votes }: { candidateId: string, votes: number }, idx: number) => {
+              return <ElectionResult object_id={candidateId} total_ballots={result.total_votes} votes={votes} key={idx} />
             })}
           </div>
         </section>

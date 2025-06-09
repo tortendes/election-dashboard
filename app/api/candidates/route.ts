@@ -1,7 +1,5 @@
-import dbConnect from "@/lib/database";
-import candidate from "@/models/candidate";
-
-await dbConnect();
+import { PrismaClient } from "@prisma/client"
+const prisma = new PrismaClient()
 
 type CandidateData = {
     name: string,
@@ -14,13 +12,16 @@ export async function POST(req: Request) {
     try {
         const reqBody = await req.json()
         const { name, party, description, logo } = reqBody as CandidateData;
-        const electionReturn = await candidate.create({
-            name,
-            party,
-            description,
-            logo
-        });
-        return Response.json({ success: true, data: electionReturn })
+        if (!name || !party || !logo) return Response.json({ sucess: false, message: "Invalid parameters" }, { status: 400 })
+        const candidate = await prisma.candidate.create({
+            data: {
+                name,
+                party,
+                description,
+                logo
+            }
+        })
+        return Response.json({ success: true, data: candidate })
     } catch (error) {
         return Response.json(
             { success: false, message: error },

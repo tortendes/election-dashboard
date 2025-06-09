@@ -4,8 +4,9 @@ import { Card, CardHeader, CardTitle, CardDescription, CardContent, CardFooter }
 import Image from "next/image"
 
 type ElectionData = {
-    total_ballots: number
-    processed_votes: number
+  total_ballots: number
+  processed_votes: number
+  update_time: Date
 }
 
 export default function HomeHero(props: ElectionData) {
@@ -20,7 +21,7 @@ export default function HomeHero(props: ElectionData) {
         <Card className="items-center text-center md:min-w-1/3">
           <CardHeader className="flex flex-col items-center text-center w-full">
             <CardTitle>Total Election Results Processed</CardTitle>
-            <CardDescription>as of {dayjs().format("MMM D, h:mm a")}</CardDescription>
+            <CardDescription>Last updated {dayjs(props.update_time).format("MMM D, h:mm a")}</CardDescription>
           </CardHeader>
           <CardContent className="flex flex-col items-center gap-4 w-full">
             <h1 className="text-5xl font-black">{getVotePercentages(props.total_ballots, props.processed_votes)}%</h1>

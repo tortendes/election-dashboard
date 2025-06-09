@@ -15,7 +15,7 @@ export default function PepePollingCoExitPolls() {
                     answers={["First Preference"]}
                     result={[
                         { id: 1,
-                            result: [15]
+                            result: [18]
                         },
                         { id: 2,
                             result: [2]
@@ -36,14 +36,14 @@ export default function PepePollingCoExitPolls() {
                 />
             </div>
             <ExitPolling title="Party Affiliations"
-                    respondents={17}
+                    respondents={21}
                     answers={["WPR", "LfR", "GER", "RRP", "RU", "TP", "IND"]}
                     result={[
                         { id: 1,
-                            result: [11,0,0,0,1,1,1]
+                            result: [12,0,0,0,1,1,3]
                         },
                         { id: 2,
-                            result: [0,0,1,0,0,0,1]
+                            result: [0,0,1,0,0,0,2]
                         }
                     ]}
                     candidates={
@@ -60,14 +60,38 @@ export default function PepePollingCoExitPolls() {
                     }
                 />
             <ExitPolling title="International Relations"
-                    respondents={16}
+                    respondents={20}
                     answers={["Excellent", "Neutral", "Poor", "N/A"]}
                     result={[
                         { id: 1,
-                            result: [8,8,0,0]
+                            result: [9,9,1,0]
                         },
                         { id: 2,
-                            result: [0,10,5,1]
+                            result: [1,12,5,1]
+                        }
+                    ]}
+                    candidates={
+                        [
+                            {
+                                name: "Kaiserin",
+                                color: "red"
+                            },
+                            {
+                                name: "Bezzergeezer",
+                                color: "blue"
+                            }
+                        ]
+                    }
+                />
+            <ExitPolling title="Economy"
+                    respondents={20}
+                    answers={["Excellent", "Neutral", "Poor", "N/A"]}
+                    result={[
+                        { id: 1,
+                            result: [14,5,1,0]
+                        },
+                        { id: 2,
+                            result: [1,7,11,1]
                         }
                     ]}
                     candidates={
@@ -84,14 +108,14 @@ export default function PepePollingCoExitPolls() {
                     }
                 />
             <ExitPolling title="National Defence"
-                    respondents={16}
+                    respondents={20}
                     answers={["Excellent", "Neutral", "Poor", "N/A"]}
                     result={[
                         { id: 1,
-                            result: [7,7,1,1]
+                            result: [8,9,2,1]
                         },
                         { id: 2,
-                            result: [2,10,2,2]
+                            result: [3,11,4,2]
                         }
                     ]}
                     candidates={
@@ -108,14 +132,14 @@ export default function PepePollingCoExitPolls() {
                     }
                 />
             <ExitPolling title="Job Growth and Protection"
-                    respondents={16}
+                    respondents={20}
                     answers={["Excellent", "Neutral", "Poor", "N/A"]}
                     result={[
                         { id: 1,
-                            result: [15,0,1,0]
+                            result: [17,1,2,0]
                         },
                         { id: 2,
-                            result: [1,6,8,1]
+                            result: [2,7,10,1]
                         }
                     ]}
                     candidates={
@@ -136,10 +160,10 @@ export default function PepePollingCoExitPolls() {
                     answers={["Excellent", "Neutral", "Poor", "N/A"]}
                     result={[
                         { id: 1,
-                            result: [14,1,1,0]
+                            result: [16,2,2,0]
                         },
                         { id: 2,
-                            result: [0,7,8,1]
+                            result: [1,7,11,1]
                         }
                     ]}
                     candidates={
@@ -160,10 +184,10 @@ export default function PepePollingCoExitPolls() {
                     answers={["Excellent", "Neutral", "Poor", "N/A"]}
                     result={[
                         { id: 1,
-                            result: [14,2,0,0]
+                            result: [15,4,1,0]
                         },
                         { id: 2,
-                            result: [0,5,10,1]
+                            result: [1,5,13,1]
                         }
                     ]}
                     candidates={

@@ -1,0 +1,41 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+// Looking for ways to speed up your queries, or scale easily with your serverless or edge functions?
+// Try Prisma Accelerate: https://pris.ly/cli/accelerate-init
+
+generator client {
+  provider = "prisma-client-js"
+  output   = "../generated/prisma"
+}
+
+datasource db {
+  provider = "mongodb"
+  url      = env("MONGODB_URI")
+}
+
+model ElectionReturn {
+  id              String                 @id @default(auto()) @map("_id") @db.ObjectId
+  total_votes     Int
+  processed_votes Int
+  results         ElectionReturnResult[]
+}
+
+model ElectionReturnResult {
+  id               String         @id @default(auto()) @map("_id") @db.ObjectId
+  candidateId      String         @db.ObjectId
+  candidate        Candidate      @relation(fields: [candidateId], references: [id])
+  votes            Int
+  electionReturnId String         @db.ObjectId
+  electionReturn   ElectionReturn @relation(fields: [electionReturnId], references: [id])
+}
+
+model Candidate {
+  id                   String                 @id @default(auto()) @map("_id") @db.ObjectId
+  name                 String
+  party                String                 @default("IND")
+  logo                 String
+  description          String
+  creation_date        DateTime               @default(now())
+  ElectionReturnResult ElectionReturnResult[]
+}

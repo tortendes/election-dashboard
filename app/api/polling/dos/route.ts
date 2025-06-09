@@ -1,7 +1,6 @@
-import dbConnect from "@/lib/database";
-import ElectionReturn from "@/models/electionReturn";
+import { PrismaClient } from "@prisma/client"
 
-await dbConnect()
+const prisma = new PrismaClient()
 
 type BallotRequest = {
     total_votes: number
@@ -11,7 +10,17 @@ type BallotRequest = {
 
 export async function GET() {
     try {
-        const result = await ElectionReturn.findOne({}).sort('-update_time')
+        const result = await prisma.electionReturn.findFirst({
+            orderBy: {
+                update_time: "desc"
+            },
+            select: {
+                results: true,
+                update_time: true,
+                total_votes: true,
+                processed_votes: true
+            }
+        })
         return Response.json({ success: true, raw_data: result }, { status: 200 })
     } catch (error) {
         console.log(error)
@@ -23,12 +32,23 @@ export async function POST(req: Request) {
     try {
         const reqBody = await req.json()
         const { total_votes, processed_votes, results } = reqBody as BallotRequest;
-        const electionReturn = await ElectionReturn.create({
-            total_votes,
-            processed_votes,
-            results
-        });
-        return Response.json({ success: true, data: electionReturn })
+
+        const election_return = await prisma.electionReturn.create({
+            data: {
+                total_votes: total_votes,
+                processed_votes: processed_votes
+            }
+        })
+        const electionResutls = results.map(async (results) => {
+            return await prisma.electionReturnResult.create({
+                data: {
+                    candidateId: results.candidate,
+                    electionReturnId: election_return.id,
+                    votes: results.votes
+                }
+            })
+        })
+        return Response.json({ success: true, data: electionResutls })
     } catch (error) {
         console.error(error)
         return Response.json(

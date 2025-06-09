@@ -1,7 +1,8 @@
-import dbConnect from "@/lib/database";
 import { Progress } from "../ui/progress";
+import { PrismaClient } from "@prisma/client"
 import Image from 'next/image'
-import Candidate from "@/models/candidate";
+
+const prisma = new PrismaClient()
 
 type ElectionResult = {
     object_id: string;
@@ -14,13 +15,12 @@ function getVotePercentages(ballot: number, votes: number): number {
 }
 
 export default async function ElectionResult(props: ElectionResult) {
-    async function fetchCandidate(id: string) {
-        "use server"
-        await dbConnect()
-        return await Candidate.findById(id)
-    }
 
-    const candidate = await fetchCandidate(props.object_id)
+    const candidate = await prisma.candidate.findFirst({
+        where: {
+            id: props.object_id
+        }
+    })
     return (
         <div className="flex items-center gap-2 w-full">
             <Image src={candidate.logo} alt={`${candidate.name} campaign logo`} className="max-h-24 rounded-xl" width={96} height={96} quality={90} />
