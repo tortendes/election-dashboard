@@ -21,6 +21,17 @@ export default async function ElectionResult(props: ElectionResult) {
             id: props.object_id
         }
     })
+
+    if (!candidate) {
+        return (
+            <div className="flex flex-col gap-2 w-full md:min-w-48 not-dark:bg-slate-200 bg-slate-900 rounded-md p-2">
+                <span className="font-bold col-span-3">
+                    Candidate did not load properly.
+                </span>
+            </div>
+        )
+    }
+
     return (
         <div className="flex items-center gap-2 w-full">
             <Image src={candidate.logo} alt={`${candidate.name} campaign logo`} className="max-h-24 rounded-xl" width={96} height={96} quality={90} />
