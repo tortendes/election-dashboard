@@ -1,7 +1,7 @@
 import ElectionResult from "@/components/interactive/result";
 import HomeHero from "@/components/pages/home-hero";
 import Timer from "@/components/interactive/timer";
-import { PrismaClient } from "@/generated/prisma/edge"
+import { PrismaClient } from "@/generated/prisma"
 
 const prisma = new PrismaClient()
 
