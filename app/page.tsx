@@ -10,6 +10,7 @@ export default async function Home() {
     "use server"
     await dbConnect()
     return await ElectionReturn.findOne({}).sort('-update_time')
+    const revalidate = 10
   }
 
   const election_return = await getElectionReturn()
