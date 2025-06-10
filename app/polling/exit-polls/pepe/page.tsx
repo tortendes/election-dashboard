@@ -10,7 +10,7 @@ export default function PepePollingCoExitPolls() {
         <>
         <header className="bg-[url('/backgrounds/main.webp')] bg-cover min-h-1/3 flex flex-col items-center gap-8 px-8 py-12 w-full">
             <Image src="/icons/header-logo.svg" className="md:max-w-1/2" alt="Redmont Decides next line Election Dashboard" width={1126} height={173} />
-            <div className="md:flex md:justify-center">
+            <div className="md:flex md:flex-col md:justify-center">
                 <h1 className="text-3xl font-bold text-white">Exit Poll: Pepe&apos;s Polling Co.</h1>
                 <h1 className="text-xl font-thin text-white">Last updated at {dayjs("2025-06-10T09:32:56+0000").format("MMMM DD, YYYY h:mm A")}</h1>
             </div>
