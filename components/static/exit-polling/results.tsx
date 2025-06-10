@@ -14,7 +14,8 @@ type PollingData = {
     answers: string[]
     result: PollingResult[]
     title: string
-    respondents: number
+    respondents?: number
+    match_count: boolean
 }
 
 type PollingResult = {
@@ -28,11 +29,19 @@ type CandidateInfo = {
 }
 
 export default function ExitPolling(props: PollingData) {
+    function estimateRespondentCount() {
+        const resp_count = props.result.map((i) => {
+            return i.result.reduce((prev, curr) => prev + curr, 0)
+        })
+        if (resp_count.length == 2 && resp_count.every(val => val === resp_count[0])) return resp_count[0]
+        else if (resp_count.length == 2 && !resp_count.every(val => val === resp_count[0])) return resp_count.reduce((p,c) => p + c,0)
+    }
+
     return (
         <Card className="w-full">
             <CardHeader>
                 <CardTitle className="md:text-3xl font-black">{props.title}</CardTitle>
-                <CardDescription className="md:text-lg font-medium">{props.respondents} total respondents</CardDescription>
+                <CardDescription className="md:text-lg font-medium">{estimateRespondentCount()} total respondents</CardDescription>
                 <CardContent className="overflow-x-scroll">
                     <Table>
                         <TableHeader>

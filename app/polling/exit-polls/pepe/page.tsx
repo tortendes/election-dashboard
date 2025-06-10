@@ -39,14 +39,14 @@ export default function PepePollingCoExitPolls() {
                 />
             </div>
             <ExitPolling title="Party Affiliations"
-                    respondents={23}
-                    answers={["WPR", "LfR", "GER", "RRP", "RU", "TP", "IND"]}
+                    respondents={30}
+                    answers={["WPR", "LfR", "GER", "RRP", "RU", "TP", "IND", "N/A"]}
                     result={[
                         { id: 1,
-                            result: [13,0,0,0,1,1,3]
+                            result: [18,0,0,0,1,1,3,0]
                         },
                         { id: 2,
-                            result: [0,1,1,0,0,0,2]
+                            result: [0,1,1,0,0,0,2,0]
                         }
                     ]}
                     candidates={
