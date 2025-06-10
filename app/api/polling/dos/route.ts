@@ -28,32 +28,32 @@ export async function GET() {
     }
 }
 
-// export async function POST(req: Request) {
-//     try {
-//         const reqBody = await req.json()
-//         const { total_votes, processed_votes, results } = reqBody as BallotRequest;
+export async function POST(req: Request) {
+    try {
+        const reqBody = await req.json()
+        const { total_votes, processed_votes, results } = reqBody as BallotRequest;
 
-//         const election_return = await prisma.electionReturn.create({
-//             data: {
-//                 total_votes: total_votes,
-//                 processed_votes: processed_votes
-//             }
-//         })
-//         const electionResutls = results.map(async (results) => {
-//             return await prisma.electionReturnResult.create({
-//                 data: {
-//                     candidateId: results.candidate,
-//                     electionReturnId: election_return.id,
-//                     votes: results.votes
-//                 }
-//             })
-//         })
-//         return Response.json({ success: true, data: electionResutls })
-//     } catch (error) {
-//         console.error(error)
-//         return Response.json(
-//             { success: false, message: error },
-//             { status: 400 }
-//         );
-//     }
-// }
+        const election_return = await prisma.electionReturn.create({
+            data: {
+                total_votes: total_votes,
+                processed_votes: processed_votes
+            }
+        })
+        const electionResutls = results.map(async (results) => {
+            return await prisma.electionReturnResult.create({
+                data: {
+                    candidateId: results.candidate,
+                    electionReturnId: election_return.id,
+                    votes: results.votes
+                }
+            })
+        })
+        return Response.json({ success: true, data: electionResutls })
+    } catch (error) {
+        console.error(error)
+        return Response.json(
+            { success: false, message: error },
+            { status: 400 }
+        );
+    }
+}
