@@ -39,41 +39,52 @@ export default function ExitPolling(props: PollingData) {
 
     const resp_count = estimateRespondentCount()
 
+    if (!resp_count) {
+        return (
+            <Card className="w-full grid place-items-center">
+                <CardHeader className="w-full">
+                    <CardTitle className="md:text-3xl font-black">Invalid data</CardTitle>
+                    <CardDescription className="md:text-lg font-medium">This category has invalid data passed onto it. Please raise the issue with @torten.png on Discord immediately.</CardDescription>
+                </CardHeader>
+            </Card>
+        )
+    }
+
     return (
         <Card className="w-full">
             <CardHeader>
                 <CardTitle className="md:text-3xl font-black">{props.title}</CardTitle>
                 <CardDescription className="md:text-lg font-medium">{resp_count} total respondents</CardDescription>
-                <CardContent className="overflow-x-scroll">
-                    <Table>
-                        <TableHeader>
-                            <TableRow>
-                                <TableHead></TableHead>
-                                {props.answers.map((element, idx) => (
-                                    <TableHead key={idx}>{element}</TableHead>
-                                ))}
-                            </TableRow>
-                        </TableHeader>
-                        <TableBody>
-                            {props.candidates.map((candidate, idx) => {
-                                return (
-                                    <TableRow key={idx}>
-                                        <TableCell className="flex items-center gap-0.5" key={idx}>
-                                            <Dot color={candidate.color} />
-                                            <span>{candidate.name}</span>
-                                        </TableCell>
-                                        {props.result[idx].result.map((result, idr) => {
-                                            return (
-                                                <TableCell key={idr}>{Math.round((result/resp_count)*100)}%</TableCell>
-                                            )
-                                        })}
-                                    </TableRow>
-                                )
-                            })}
-                        </TableBody>
-                    </Table>
-                </CardContent>
             </CardHeader>
+            <CardContent className="overflow-x-scroll">
+                <Table>
+                    <TableHeader>
+                        <TableRow>
+                            <TableHead></TableHead>
+                            {props.answers.map((element, idx) => (
+                                <TableHead key={idx}>{element}</TableHead>
+                            ))}
+                        </TableRow>
+                    </TableHeader>
+                    <TableBody>
+                        {props.candidates.map((candidate, idx) => {
+                            return (
+                                <TableRow key={idx}>
+                                    <TableCell className="flex items-center gap-0.5" key={idx}>
+                                        <Dot color={candidate.color} />
+                                        <span>{candidate.name}</span>
+                                    </TableCell>
+                                    {props.result[idx].result.map((result, idr) => {
+                                        return (
+                                            <TableCell key={idr}>{Math.round((result/resp_count)*100)}%</TableCell>
+                                        )
+                                    })}
+                                </TableRow>
+                            )
+                        })}
+                    </TableBody>
+                </Table>
+            </CardContent>
         </Card>
     )
 }
