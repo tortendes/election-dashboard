@@ -7,6 +7,7 @@ import { ThemeProvider } from "@/components/theme-provider";
 import { ModeToggle } from "@/components/interactive/color-mode";
 import DesktopNavbar from "@/components/static/navigation-bar";
 import { MobileNavigation } from "@/components/static/navigation-drawer";
+import { Toaster } from "@/components/ui/sonner";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -56,6 +57,7 @@ export default function RootLayout({
           </div>
         </nav>
         {children}
+        <Toaster />
       </ThemeProvider>
       </body>
     </html>

@@ -15,7 +15,6 @@ function getVotePercentages(ballot: number, votes: number): number {
 }
 
 export default async function ElectionResult(props: ElectionResult) {
-
     const candidate = await prisma.candidate.findFirst({
         where: {
             id: props.object_id
