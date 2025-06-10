@@ -39,8 +39,8 @@ export async function POST(req: Request) {
                 processed_votes: processed_votes
             }
         })
-        const electionResutls = results.map(async (results) => {
-            return await prisma.electionReturnResult.create({
+        results.forEach(async (results) => {
+            await prisma.electionReturnResult.create({
                 data: {
                     candidateId: results.candidate,
                     electionReturnId: election_return.id,
@@ -48,7 +48,12 @@ export async function POST(req: Request) {
                 }
             })
         })
-        return Response.json({ success: true, data: electionResutls })
+        const resulting_db = await prisma.electionReturn.findFirst({
+            where: {
+                id: election_return.id
+            }
+        })
+        return Response.json({ success: true, data: resulting_db })
     } catch (error) {
         console.error(error)
         return Response.json(

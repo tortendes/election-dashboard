@@ -20,8 +20,8 @@ export async function sendElectionReturn(data: ElectionData) {
             total_votes: data.total_votes
         }
     })
-    const results = data.results.map(async (item) => {
-        return await prisma.electionReturnResult.create({
+    data.results.forEach(async (item) => {
+        await prisma.electionReturnResult.create({
             data: {
                 votes: item.votes,
                 candidateId: item.candidateId,
