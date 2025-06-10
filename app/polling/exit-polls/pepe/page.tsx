@@ -1,6 +1,7 @@
 import ExitPolling from "@/components/static/exit-polling/results";
 import { Button } from "@/components/ui/button";
 import { Card, CardAction, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
+import dayjs from "dayjs";
 import Image from "next/image"
 import Link from "next/link";
 
@@ -9,7 +10,10 @@ export default function PepePollingCoExitPolls() {
         <>
         <header className="bg-[url('/backgrounds/main.webp')] bg-cover min-h-1/3 flex flex-col items-center gap-8 px-8 py-12 w-full">
             <Image src="/icons/header-logo.svg" className="md:max-w-1/2" alt="Redmont Decides next line Election Dashboard" width={1126} height={173} />
-            <h1 className="text-3xl font-bold text-white">Exit Poll: Pepe&apos;s Polling Co.</h1>
+            <div>
+                <h1 className="text-3xl font-bold text-white">Exit Poll: Pepe&apos;s Polling Co.</h1>
+                <h1 className="text-xl font-medium text-white">Last updated at {dayjs("2025-06-10T09:15:09+00:00").format("MMMM DD, YYYY h:mm A")}</h1>
+            </div>
         </header>
         <div className="flex flex-col md:grid grid-cols-2 gap-2 px-4 py-2">
             <div className="col-span-2">
@@ -17,7 +21,7 @@ export default function PepePollingCoExitPolls() {
                     answers={["First Preference"]}
                     result={[
                         { id: 1,
-                            result: [20]
+                            result: [26]
                         },
                         { id: 2,
                             result: [4]
@@ -41,7 +45,7 @@ export default function PepePollingCoExitPolls() {
                     answers={["WPR", "LfR", "GER", "RRP", "RU", "TP", "IND", "N/A"]}
                     result={[
                         { id: 1,
-                            result: [18,0,0,0,1,1,3,0]
+                            result: [17,0,1,0,1,1,6,0]
                         },
                         { id: 2,
                             result: [0,1,1,0,0,0,2,0]
@@ -64,10 +68,10 @@ export default function PepePollingCoExitPolls() {
                     answers={["Excellent", "Neutral", "Poor", "N/A"]}
                     result={[
                         { id: 1,
-                            result: [9,9,2,1]
+                            result: [11,10,4,2]
                         },
                         { id: 2,
-                            result: [2,12,5,2]
+                            result: [3,13,9,2]
                         }
                     ]}
                     candidates={
@@ -87,10 +91,10 @@ export default function PepePollingCoExitPolls() {
                     answers={["Excellent", "Neutral", "Poor", "N/A"]}
                     result={[
                         { id: 1,
-                            result: [14,5,2,0]
+                            result: [16,7,3,1]
                         },
                         { id: 2,
-                            result: [2,7,11,1]
+                            result: [3,9,14,1]
                         }
                     ]}
                     candidates={
@@ -110,10 +114,10 @@ export default function PepePollingCoExitPolls() {
                     answers={["Excellent", "Neutral", "Poor", "N/A"]}
                     result={[
                         { id: 1,
-                            result: [8,9,3,1]
+                            result: [8,12,5,2]
                         },
                         { id: 2,
-                            result: [4,11,4,2]
+                            result: [5,13,7,2]
                         }
                     ]}
                     candidates={
@@ -133,10 +137,10 @@ export default function PepePollingCoExitPolls() {
                     answers={["Excellent", "Neutral", "Poor", "N/A"]}
                     result={[
                         { id: 1,
-                            result: [17,1,3,0]
+                            result: [21,1,4,1]
                         },
                         { id: 2,
-                            result: [3,7,10,1]
+                            result: [4,10,12,1]
                         }
                     ]}
                     candidates={
@@ -156,10 +160,10 @@ export default function PepePollingCoExitPolls() {
                     answers={["Excellent", "Neutral", "Poor", "N/A"]}
                     result={[
                         { id: 1,
-                            result: [16,2,3,0]
+                            result: [19,4,3,0]
                         },
                         { id: 2,
-                            result: [2,7,11,1]
+                            result: [3,9,13,2]
                         }
                     ]}
                     candidates={
@@ -179,10 +183,10 @@ export default function PepePollingCoExitPolls() {
                     answers={["Excellent", "Neutral", "Poor", "N/A"]}
                     result={[
                         { id: 1,
-                            result: [15,4,2,0]
+                            result: [18,5,3,1]
                         },
                         { id: 2,
-                            result: [2,5,13,1]
+                            result: [3,6,17,1]
                         }
                     ]}
                     candidates={

@@ -1,4 +1,7 @@
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
+"use client"
+import { Card, CardAction, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
+import { Switch } from "@/components/ui/switch"
+import { Label } from "@/components/ui/label"
 import {
   Table,
   TableBody,
@@ -8,6 +11,7 @@ import {
   TableRow,
 } from "@/components/ui/table"
 import { Dot } from "lucide-react"
+import { useState } from "react"
 
 type PollingData = {
     candidates: CandidateInfo[]
@@ -29,6 +33,8 @@ type CandidateInfo = {
 }
 
 export default function ExitPolling(props: PollingData) {
+    const [viewCount, setViewCount] = useState(false)
+
     function estimateRespondentCount() {
         const resp_count = props.result.map((i) => {
             return i.result.reduce((prev, curr) => prev + curr, 0)
@@ -55,6 +61,12 @@ export default function ExitPolling(props: PollingData) {
             <CardHeader>
                 <CardTitle className="md:text-3xl font-black">{props.title}</CardTitle>
                 <CardDescription className="md:text-lg font-medium">{resp_count} total respondents</CardDescription>
+                <CardAction>
+                        <div className="flex items-center space-x-2">
+                            <Switch id="view-count" checked={viewCount} onCheckedChange={setViewCount} />
+                            <Label htmlFor="view-count">View Count</Label>
+                        </div>
+                </CardAction>
             </CardHeader>
             <CardContent className="overflow-x-scroll">
                 <Table>
@@ -75,7 +87,11 @@ export default function ExitPolling(props: PollingData) {
                                         <span>{candidate.name}</span>
                                     </TableCell>
                                     {props.result[idx].result.map((result, idr) => {
-                                        return (
+                                        if (viewCount) {
+                                            return (
+                                                <TableCell key={idr}>{result}</TableCell>
+                                            )
+                                        } else return (
                                             <TableCell key={idr}>{Math.round((result/resp_count)*100)}%</TableCell>
                                         )
                                     })}
