@@ -15,7 +15,7 @@ type PollingData = {
     result: PollingResult[]
     title: string
     respondents?: number
-    match_count: boolean
+    match_count?: boolean
 }
 
 type PollingResult = {
