@@ -37,11 +37,13 @@ export default function ExitPolling(props: PollingData) {
         else if (resp_count.length == 2 && !resp_count.every(val => val === resp_count[0])) return resp_count.reduce((p,c) => p + c,0)
     }
 
+    const resp_count = estimateRespondentCount()
+
     return (
         <Card className="w-full">
             <CardHeader>
                 <CardTitle className="md:text-3xl font-black">{props.title}</CardTitle>
-                <CardDescription className="md:text-lg font-medium">{estimateRespondentCount()} total respondents</CardDescription>
+                <CardDescription className="md:text-lg font-medium">{resp_count} total respondents</CardDescription>
                 <CardContent className="overflow-x-scroll">
                     <Table>
                         <TableHeader>
@@ -62,7 +64,7 @@ export default function ExitPolling(props: PollingData) {
                                         </TableCell>
                                         {props.result[idx].result.map((result, idr) => {
                                             return (
-                                                <TableCell key={idr}>{Math.round((result/props.respondents)*100)}%</TableCell>
+                                                <TableCell key={idr}>{Math.round((result/resp_count)*100)}%</TableCell>
                                             )
                                         })}
                                     </TableRow>

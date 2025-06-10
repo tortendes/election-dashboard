@@ -14,7 +14,6 @@ export default function PepePollingCoExitPolls() {
         <div className="flex flex-col md:grid grid-cols-2 gap-2 px-4 py-2">
             <div className="col-span-2">
                 <ExitPolling title="Presidential Pick"
-                    respondents={24}
                     answers={["First Preference"]}
                     result={[
                         { id: 1,
@@ -39,7 +38,6 @@ export default function PepePollingCoExitPolls() {
                 />
             </div>
             <ExitPolling title="Party Affiliations"
-                    respondents={30}
                     answers={["WPR", "LfR", "GER", "RRP", "RU", "TP", "IND", "N/A"]}
                     result={[
                         { id: 1,
@@ -63,7 +61,6 @@ export default function PepePollingCoExitPolls() {
                     }
                 />
             <ExitPolling title="International Relations"
-                    respondents={21}
                     answers={["Excellent", "Neutral", "Poor", "N/A"]}
                     result={[
                         { id: 1,
@@ -87,7 +84,6 @@ export default function PepePollingCoExitPolls() {
                     }
                 />
             <ExitPolling title="Economy"
-                    respondents={21}
                     answers={["Excellent", "Neutral", "Poor", "N/A"]}
                     result={[
                         { id: 1,
@@ -111,7 +107,6 @@ export default function PepePollingCoExitPolls() {
                     }
                 />
             <ExitPolling title="National Defence"
-                    respondents={21}
                     answers={["Excellent", "Neutral", "Poor", "N/A"]}
                     result={[
                         { id: 1,
@@ -135,7 +130,6 @@ export default function PepePollingCoExitPolls() {
                     }
                 />
             <ExitPolling title="Job Growth and Protection"
-                    respondents={21}
                     answers={["Excellent", "Neutral", "Poor", "N/A"]}
                     result={[
                         { id: 1,
@@ -159,7 +153,6 @@ export default function PepePollingCoExitPolls() {
                     }
                 />
             <ExitPolling title="Adressing Wealth Inequality"
-                    respondents={21}
                     answers={["Excellent", "Neutral", "Poor", "N/A"]}
                     result={[
                         { id: 1,
@@ -183,7 +176,6 @@ export default function PepePollingCoExitPolls() {
                     }
                 />
             <ExitPolling title="Safeguarding Democracy"
-                    respondents={21}
                     answers={["Excellent", "Neutral", "Poor", "N/A"]}
                     result={[
                         { id: 1,
