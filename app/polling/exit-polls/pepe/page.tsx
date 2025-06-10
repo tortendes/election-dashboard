@@ -1,9 +1,8 @@
 import ExitPolling from "@/components/static/exit-polling/results";
 import { Button } from "@/components/ui/button";
-import { Card, CardAction, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import dayjs from "dayjs";
 import Image from "next/image"
-import Link from "next/link";
 
 export default function PepePollingCoExitPolls() {
     return (
