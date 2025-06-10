@@ -12,7 +12,7 @@ export default function PepePollingCoExitPolls() {
             <Image src="/icons/header-logo.svg" className="md:max-w-1/2" alt="Redmont Decides next line Election Dashboard" width={1126} height={173} />
             <div className="md:flex md:justify-center">
                 <h1 className="text-3xl font-bold text-white">Exit Poll: Pepe&apos;s Polling Co.</h1>
-                <h1 className="text-xl font-thin text-white">Last updated at {dayjs("2025-06-10T09:15:09+00:00").format("MMMM DD, YYYY h:mm A")}</h1>
+                <h1 className="text-xl font-thin text-white">Last updated at {dayjs("2025-06-10T09:32:56+0000").format("MMMM DD, YYYY h:mm A")}</h1>
             </div>
         </header>
         <div className="flex flex-col md:grid grid-cols-2 gap-2 px-4 py-2">
