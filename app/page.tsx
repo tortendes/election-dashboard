@@ -13,7 +13,12 @@ export default async function Home() {
       update_time: "desc"
     },
     select: {
-      results: true,
+      results: {
+        select: {
+          candidateId: true,
+          votes: true
+        }
+      },
       update_time: true,
       total_votes: true,
       processed_votes: true
