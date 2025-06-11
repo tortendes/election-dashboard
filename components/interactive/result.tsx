@@ -11,7 +11,7 @@ type ElectionResult = {
 }
 
 function getVotePercentages(ballot: number, votes: number): number {
-    return Math.floor((ballot*votes)/100)
+    return Math.floor((votes*ballot)/100)
 }
 
 export default async function ElectionResult(props: ElectionResult) {
