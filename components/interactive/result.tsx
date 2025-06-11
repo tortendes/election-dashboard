@@ -11,7 +11,8 @@ type ElectionResult = {
 }
 
 function getVotePercentages(ballot: number, votes: number): number {
-    return Math.floor((votes*ballot)/100)
+    const calculation = Math.round((((votes/ballot)*100) + Number.EPSILON) * 100) / 100
+    return isNaN(calculation) ? 0 : calculation
 }
 
 export default async function ElectionResult(props: ElectionResult) {
